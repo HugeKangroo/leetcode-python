@@ -1,7 +1,7 @@
 '''
 @Author: your name
 @Date: 2020-03-25 15:32:03
-@LastEditTime: 2020-03-25 16:53:48
+@LastEditTime: 2020-03-25 21:29:10
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /Algrithm/Graph.py
@@ -64,11 +64,30 @@ class Graph(object):
         return self._nodes.get(n)
     
     def getNode(self,n):
-        
         return self.__getitem__(n)
 
 
 def BFSearch(graph,start,target):
     visited = []
     queue = []
-    queue.append(graph[start])
+    queue.append(graph[start].getNbrs())
+    visited.append(graph[start].getID())
+    while len(queue) > 0:
+        key = queue.pop(0)
+        if key not in visited:
+            if key == target:
+                return True, visited
+            else:
+                queue += graph[key].getNbrs()
+                visited.append(key)
+    return False, None
+
+
+if __name__ == "__main__":
+    g = Graph()
+    g.addNode(1)
+    g.addNode(2)
+    g.addEdge(3,5)
+    g.addEdge(4,2)
+    g.addEdge(4,5)
+    BFSearch(g,1,5)
