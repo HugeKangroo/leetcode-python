@@ -1,12 +1,13 @@
 '''
 @Author: your name
 @Date: 2020-02-29 20:37:39
-@LastEditTime: 2020-03-24 18:55:53
+@LastEditTime: 2020-03-24 20:20:22
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /Algrithm Study/Sorting/sort.py
 '''
 # def reverse_queue()
+import random
 
 def exchange_element(queue,a_index,b_index):
     # tmp = None
@@ -18,10 +19,12 @@ def exchange_element(queue,a_index,b_index):
     return queue
 
 def quick_sort(queue,reverse=False):
-    if len(queue) <= 1:
+    num = len(queue)
+    if num <= 1:
         return queue
     else:
-        index = 0
+        #index = 0
+        index = random.randint(0,num)
         pivot = queue[index]
         rest = queue[:index] + queue[index+1:]
         small = [i for i in rest if i < pivot]
@@ -148,7 +151,7 @@ if __name__ == "__main__":
     input_list = [ random.randint(1,100) for i in range(NUM_LEN)]
     print("input list is:",input_list)
     FUN = quick_sort
-    sorted_list = FUN(input_list,True)
+    sorted_list = FUN(input_list,False)
     print(FUN.__name__,"sort list is:",sorted_list)
     # sorted_list = bubble_sort(input_list,False)
     # print("bubble sorted list is:",sorted_list)
