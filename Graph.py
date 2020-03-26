@@ -1,7 +1,7 @@
 '''
 @Author: your name
 @Date: 2020-03-25 15:32:03
-@LastEditTime: 2020-03-26 17:43:55
+@LastEditTime: 2020-03-26 17:59:36
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /Algrithm/Graph.py
@@ -35,7 +35,7 @@ class Graph(object):
             self._nodes[key] = Node(key)
         return self._nodes[key]
 
-    def addEdge(self,n1,n2,weight=0,directed=False):
+    def addEdge(self,n1,n2,weight=0,directed=True):
         assert n1 != n2 ," n1, n2 can not be same."
 
         if n1 not in self._nodes.keys():
