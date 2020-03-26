@@ -1,7 +1,7 @@
 '''
 @Author: your name
 @Date: 2020-03-25 15:32:03
-@LastEditTime: 2020-03-25 21:29:10
+@LastEditTime: 2020-03-25 22:02:13
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /Algrithm/Graph.py
@@ -16,7 +16,7 @@ class Node(object):
         self._nbrs[key] = weight
 
     def getNbrs(self):
-        return self._nbrs.keys()
+        return list(self._nbrs.keys())
 
     def getID(self):
         return self._id
@@ -70,7 +70,7 @@ class Graph(object):
 def BFSearch(graph,start,target):
     visited = []
     queue = []
-    queue.append(graph[start].getNbrs())
+    queue += graph[start].getNbrs()
     visited.append(graph[start].getID())
     while len(queue) > 0:
         key = queue.pop(0)
@@ -85,8 +85,9 @@ def BFSearch(graph,start,target):
 
 if __name__ == "__main__":
     g = Graph()
-    g.addNode(1)
-    g.addNode(2)
+    g.addEdge(1,2)
+    # g.addNode(1)
+    # 
     g.addEdge(3,5)
     g.addEdge(4,2)
     g.addEdge(4,5)
