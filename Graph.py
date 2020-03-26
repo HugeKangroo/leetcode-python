@@ -1,7 +1,7 @@
 '''
 @Author: your name
 @Date: 2020-03-25 15:32:03
-@LastEditTime: 2020-03-25 21:29:10
+@LastEditTime: 2020-03-26 17:43:55
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /Algrithm/Graph.py
@@ -16,7 +16,7 @@ class Node(object):
         self._nbrs[key] = weight
 
     def getNbrs(self):
-        return self._nbrs.keys()
+        return list(self._nbrs.keys())
 
     def getID(self):
         return self._id
@@ -31,7 +31,8 @@ class Graph(object):
         # self._edges = {}
 
     def addNode(self,key):
-        self._nodes[key] = Node(key)
+        if key not in self._nodes.keys():
+            self._nodes[key] = Node(key)
         return self._nodes[key]
 
     def addEdge(self,n1,n2,weight=0,directed=False):
@@ -51,7 +52,7 @@ class Graph(object):
 
     def getEdge(self,n1,n2):
         # assert n1 != n2 ," n1, n2 can not be same."
-        if n1 in self._nodes.keys and n2 in self._nodes.keys() and n1 != n2:
+        if n1 in self._nodes.keys() and n2 in self._nodes.keys() and n1 != n2:
             node1 = self._nodes[n1]
             # node2 = self._nodes[n2]
             if n2 in node1.getNbrs():
@@ -67,17 +68,23 @@ class Graph(object):
         return self.__getitem__(n)
 
 
+
+
 def BFSearch(graph,start,target):
     visited = []
     queue = []
-    queue.append(graph[start].getNbrs())
+    queue += (graph[start].getNbrs())
     visited.append(graph[start].getID())
+    # path = [graph[start].getID()]
+    path = []
     while len(queue) > 0:
         key = queue.pop(0)
+        path.append(key)
         if key not in visited:
             if key == target:
-                return True, visited
+                return True, path
             else:
+                path.pop(-1)
                 queue += graph[key].getNbrs()
                 visited.append(key)
     return False, None
@@ -85,9 +92,9 @@ def BFSearch(graph,start,target):
 
 if __name__ == "__main__":
     g = Graph()
-    g.addNode(1)
-    g.addNode(2)
+    g.addEdge(1,2)
     g.addEdge(3,5)
     g.addEdge(4,2)
     g.addEdge(4,5)
-    BFSearch(g,1,5)
+    bl, path = BFSearch(g,1,5)
+    print(path)
