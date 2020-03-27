@@ -1,7 +1,7 @@
 '''
 @Author: your name
 @Date: 2020-03-25 15:32:03
-@LastEditTime: 2020-03-26 19:33:36
+@LastEditTime: 2020-03-26 19:50:23
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /Algrithm/Graph.py
@@ -35,7 +35,7 @@ class Graph(object):
             self._nodes[key] = Node(key)
         return self._nodes[key]
 
-    def addEdge(self,n1,n2,weight=0,directed=True):
+    def addEdge(self,n1,n2,weight=0,directed=False):
         assert n1 != n2 ," n1, n2 can not be same."
 
         if n1 not in self._nodes.keys():
@@ -64,6 +64,9 @@ class Graph(object):
     def __getitem__(self,n):
         return self._nodes.get(n)
     
+    def getNodes(self):
+        return list(self._nodes.keys())
+    
     def getNode(self,n):
         return self.__getitem__(n)
 
@@ -89,6 +92,12 @@ def BFSearch(graph,start,target):
                 visited.append(key)
     return False, None
 
+def Dijkstra(graph,start,target):
+    # only useful for positive and no circle graph
+    cost = []
+    visited = []
+    key = graph[start].getNbrs()
+    
 
 if __name__ == "__main__":
     g = Graph()
