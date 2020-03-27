@@ -1,7 +1,7 @@
 '''
 @Author: your name
 @Date: 2020-03-25 15:32:03
-@LastEditTime: 2020-03-27 15:15:07
+@LastEditTime: 2020-03-27 16:34:09
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /Algrithm/Graph.py
@@ -146,8 +146,7 @@ def Dijkstra(graph,start,target):
     
     # while node 
 
-    
-    
+
 
 
 if __name__ == "__main__":
