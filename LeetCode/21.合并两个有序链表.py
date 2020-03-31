@@ -1,7 +1,7 @@
 '''
 @Author: your name
 @Date: 2020-03-31 21:04:41
-@LastEditTime: 2020-03-31 21:47:20
+@LastEditTime: 2020-03-31 21:54:31
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /Algrithm/LeetCode/21.合并两个有序链表.py
@@ -24,10 +24,16 @@ class Solution:
         if l1 is None and l2 is None:
             return
         elif l1 is not None and l2 is not None:
-            val = l1.val if l1.val <= l2.val else l2.val
-            # next_node = l1.next if l1.val >÷= l2.val else l2.next
+            if l1.val >= l2.val:
+                next_node1 = l1 # 保留较大节点
+                next_node2 = l2.next
+                val = l2.val # 保留较小的值
+            else:
+                next_node1 = l2
+                next_node2 = l1.next
+                val = l1.val
             cur = ListNode(val)
-            cur.next = self.mergeTwoLists(l1.next,l2.next)
+            cur.next = self.mergeTwoLists(next_node1,next_node2)
             return cur
         elif l1 is None and l2 is not None:
             val = l2.val
