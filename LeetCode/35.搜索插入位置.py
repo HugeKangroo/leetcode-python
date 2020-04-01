@@ -1,7 +1,7 @@
 '''
 @Author: your name
 @Date: 2020-04-01 15:59:44
-@LastEditTime: 2020-04-01 17:24:32
+@LastEditTime: 2020-04-01 17:27:06
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /Algrithm/LeetCode/35.搜索插入位置.py
@@ -15,11 +15,12 @@
 # @lc code=start
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
-        noequal 
+        noEqual = 0 
         for i in range(len(nums)):
             if nums[i] == target:
                 return i
-            
+            elif nums[i] < target:
+                noEqual += 1
 
 
 
