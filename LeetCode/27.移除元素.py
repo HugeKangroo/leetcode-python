@@ -1,7 +1,7 @@
 '''
 @Author: your name
 @Date: 2020-04-01 09:48:13
-@LastEditTime: 2020-04-01 10:30:04
+@LastEditTime: 2020-04-01 13:48:35
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /Algrithm/LeetCode/27.移除元素.py
