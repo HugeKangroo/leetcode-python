@@ -1,7 +1,7 @@
 '''
 @Author: your name
 @Date: 2020-04-02 08:58:28
-@LastEditTime: 2020-04-02 11:39:47
+@LastEditTime: 2020-04-02 12:04:40
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /Algrithm/LeetCode/38.外观数列.py
@@ -15,9 +15,12 @@
 # @lc code=start
 class Solution:
     def countAndSay(self, n: int) -> str:
-        last = ""
+        last = "1"
         for i in range(1,n):
-            for head in range(0,len(last)-1)
+            
+            for head in range(0,len(last))：
+                for tail in range(head+1,len(last)):
+                    if 
             
 
 # @lc code=end
