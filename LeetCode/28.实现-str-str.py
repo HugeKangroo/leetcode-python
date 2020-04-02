@@ -1,7 +1,7 @@
 '''
 @Author: your name
 @Date: 2020-04-01 10:32:26
-@LastEditTime: 2020-04-01 15:42:10
+@LastEditTime: 2020-04-01 22:00:55
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /Algrithm/LeetCode/28.实现-str-str.py
@@ -35,27 +35,27 @@ class Solution:
     #                 return hth - N + 1
     #     return -1
 
-        def strStr(self, haystack: str, needle: str) -> int:
-            N = len(haystack)
-            M = len(needle)
-            if M == 0: return 0
-            if M > N: return -1
-            ith = 0
-            while ith < N:
-                cnum = 0
-                if ith + M > N: return -1
-                for jth in range(M):
-                    h_char = haystack[ith+jth]
-                    n_char = needle[jth]
-                    if n_char == h_char:
-                        cnum += 1
-                    else:
-                        break
-                if cnum == M:
-                    return ith
+    def strStr(self, haystack: str, needle: str) -> int:
+        N = len(haystack)
+        M = len(needle)
+        if M == 0: return 0
+        if M > N: return -1
+        ith = 0
+        while ith < N:
+            cnum = 0
+            if ith + M > N: return -1
+            for jth in range(M):
+                h_char = haystack[ith+jth]
+                n_char = needle[jth]
+                if n_char == h_char:
+                    cnum += 1
                 else:
-                    ith += 1 
-            return -1
+                    break
+            if cnum == M:
+                return ith
+            else:
+                ith += 1 
+        return -1
 
 
 
