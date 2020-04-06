@@ -1,3 +1,11 @@
+'''
+@Author: your name
+@Date: 2020-04-04 14:12:53
+@LastEditTime: 2020-04-05 12:34:19
+@LastEditors: Please set LastEditors
+@Description: In User Settings Edit
+@FilePath: /Algrithm/LeetCode/67.二进制求和.py
+'''
 #
 # @lc app=leetcode.cn id=67 lang=python3
 #
@@ -32,6 +40,19 @@
 # @lc code=start
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
+        if len(a) == 0:return b
+        if len(b) == 0:return a
+        
+        if a[-1] == "1" and b[-1] == "1":
+            return self.addBinary(self.addBinary(a[:-1],b[:-1]),"1") + "0"
+        elif a[-1] == "0" and b[-1] == "0":
+            return self.addBinary(a[:-1],b[:-1]) + "0"
+        else:
+            return self.addBinary(a[:-1],b[:-1]) + "1"
+
+
+
+        
         
 # @lc code=end
 
