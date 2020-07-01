@@ -1,7 +1,7 @@
 '''
 @Author: your name
 @Date: 2020-06-29 15:38:52
-@LastEditTime: 2020-06-29 17:48:09
+@LastEditTime: 2020-07-01 10:44:11
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /Algrithm/tree/binaryTree.py
@@ -57,7 +57,7 @@ class BST(object):
         if root.left is None:
             return root
         else:
-            return self.__findMin(root,left)
+            return self.__findMin(root.left)
 
     def finMin(self):
         return self.__findMin(self.root)
@@ -86,15 +86,49 @@ class BST(object):
 
             elif root.right != None and root.left == None:
                 root = root.right
+        return root
                 
-
+    def delete(self,val):
+        # self.root = self.__delete(self.root,val)
+        # return self.root
+        return self.__delete(self.root,val)#return new tree
     
+    def printTree(self):
+        self._print(self.root)
 
-
+    def _print(self,root):
+        if root is None:
+            print("None")
+        else:
+            if root.left and root.right:
+                print(root.val)
+                self._print(root.left)
+                # if root.right is not None:
+                self._print(root.right)
+            elif root.left is None and root.right:
+                print(root.val)
+                self._print(root.left)
+                self._print(root.right)
+            elif root.left and root.right is None:
+                print(root.val)
+                self._print(root.left)
+            else:
+                print(root.val)
+                
 if __name__ == "__main__":
-    test = [7,9,8,6]
+    import random
+    # test = [ random.randint(1,20) for i in range(10)]
+    test = [3,6,9,10]
+    print(test)
     bst = BST()
     for i in test:
         bst.add(i)
     # print(bst)
+    # print(bst)
+    bst.printTree()
     print(bst.isexist(1))
+    print(bst.findMax().val)
+    print(bst.finMin().val)
+    # del_node = random.choice(test)
+    rest = bst.delete(3)
+    print(rest)
