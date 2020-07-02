@@ -1,7 +1,7 @@
 '''
 @Author: your name
 @Date: 2020-06-30 11:12:07
-@LastEditTime: 2020-07-01 11:31:04
+@LastEditTime: 2020-07-02 11:26:37
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /Algrithm/LeetCode/95.不同的二叉搜索树-ii.py
@@ -34,9 +34,10 @@ class Solution:
     def generateTrees(self, n: int) -> List[TreeNode]:
         def buildTree(start,end):
             if start > end:
-                return [None] ## 不能空，否则左树和右树的循环不起作用
-            # elif start == end:
-            #     return [TreeNode(start)]
+                return [None] #表示空树
+                ## 不能空，否则左树和右树的循环不起作用
+                ## 不能用两个None，元素会重复
+                ## 一定要有返回[None],表示空树
             else:
                 all_trees = []
                 for i in range(start,end+1): # range 不包含下界
