@@ -1,7 +1,7 @@
 '''
 @Author: your name
 @Date: 2020-06-29 14:58:54
-@LastEditTime: 2020-07-08 20:01:35
+@LastEditTime: 2020-07-08 20:41:26
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /Algrithm/LeetCode/96.不同的二叉搜索树.py
@@ -26,8 +26,10 @@ class Solution:
         dp[1] = 1
         
         for i in range(2,n+1):
-            for j in range(i+1,n+1):
-                dp[i] += dp[j-1] * dp[n-j]
+            # for j in range(i+1,n+1):
+            for j in range(1,i+1):# j = 1 ~ i // 
+                dp[i] += dp[j-1] * dp[i-j] # 1 ~ j, j ~ i
+        return dp[-1]
 
 # @lc code=end
 
