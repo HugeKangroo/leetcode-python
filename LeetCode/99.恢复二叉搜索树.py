@@ -1,7 +1,7 @@
 '''
 @Author: your name
 @Date: 2020-07-09 23:16:56
-@LastEditTime: 2020-07-09 23:30:44
+@LastEditTime: 2020-07-09 23:38:54
 @LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /Algrithm/LeetCode/99.恢复二叉搜索树.py
@@ -94,6 +94,20 @@ class Solution:
                 elif val > root.val:
                     root.right = buildTree(root.right,val)
                     return root
-                
+        def recursive(root):
+            if root is None:
+                return []
+            else:
+                left = recursive(root.left)
+                right = recursive(root.right)
+                return left + [root.val] + right
+
+        order = recursive(root)
+        root = None
+        for i in order:
+            root = buildTree(root,i)
+        # print(root.left.val)
+        print(root.right.val)
+        return root
 # @lc code=end
 
