@@ -30,7 +30,20 @@ class Solution:
             _idx += 1
             ith += repeatNum + 1
         return _idx
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        # dp = [[0] * len(prices)
+        dp =[[0,0] for i in range(len(prices))]
 
+        for i in range(len(prices)):
+            if i == 0:
+                dp[i][0] = 0
+                dp[i][1] = -prices[0]
+            else:
+                dp[i][0] = max(dp[i-1][1]+prices[i],dp[i-1][0])#第i天非持有状态的最大利润
+                dp[i][1] = max(-prices[i],dp[i-1][1])#第i天持有状态的最大利润,
+                #不能使用dp[i-1][0]-prices[i]，因为只可购买一次
+        return dp[-1][0]
 
 # @lc code=end
 

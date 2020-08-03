@@ -1,8 +1,8 @@
 '''
 @Author: your name
 @Date: 2020-07-29 14:08:54
-@LastEditTime: 2020-07-29 14:52:27
-@LastEditors: Please set LastEditors
+LastEditTime: 2020-08-03 17:40:07
+LastEditors: Please set LastEditors
 @Description: In User Settings Edit
 @FilePath: /Algrithm/LeetCode/和为s的连续正数序列.py
 '''
